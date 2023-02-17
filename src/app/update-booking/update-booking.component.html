@@ -17,7 +17,7 @@
       </div>
     </div>
   </nav>
-
+<h1>Update movie Booking</h1>
   <div class="container">
     <div class="row">
         <form [formGroup]="movielist">
@@ -32,13 +32,13 @@
                 />
         
                 <div
-                  *ngIf="movielist.controls['movieid'].errors?.['required']"
+                  *ngIf="movielist.controls['movieid'].errors?.['required'] && movielist.touched"
                   class="alert alert-danger"
                 >
                   This field is required
                 </div>
                 <div
-                  *ngIf="movielist.controls['movieid'].errors?.['pattern']"
+                  *ngIf="movielist.controls['movieid'].errors?.['pattern'] && movielist.touched"
                   class="alert alert-danger"
                 >
                   number should be between 1 to 300
@@ -53,13 +53,13 @@
                   formControlName="moviename"
                 />
                 <div
-                  *ngIf="movielist.controls['moviename'].errors?.['required']"
+                  *ngIf="movielist.controls['moviename'].errors?.['required'] && movielist.touched"
                   class="alert alert-danger"
                 >
                   This field is required
                 </div>
                 <div
-                  *ngIf="movielist.controls['moviename'].errors?.['pattern']"
+                  *ngIf="movielist.controls['moviename'].errors?.['pattern'] && movielist.touched"
                   class="alert alert-danger"
                 >
                   Movie can have alphanumeric of maximum of 20 character
@@ -74,9 +74,7 @@
                   formControlName="movieBookingDate"
                   name="movieBookingDate"
                 />
-                <!-- <div *ngIf="movielist.controls['movieBokingDate'].errors" class="alert  alert-danger">
-                        This field is required
-                      </div> -->
+                
               </div>
               <div class="mb-3">
                 <label class="text" for="exampleCheck1" name="moviedate"
@@ -90,19 +88,19 @@
                 />
                 
                 <div
-                  *ngIf="movielist.controls['noOfTickets'].errors?.['required']"
+                  *ngIf="movielist.controls['noOfTickets'].errors?.['required'] && movielist.touched"
                   class="alert alert-danger"
                 >
                   This field is required
                 </div>
                 <div
-                  *ngIf="movielist.controls['noOfTickets'].errors?.['pattern']"
+                  *ngIf="movielist.controls['noOfTickets'].errors?.['pattern'] && movielist.touched"
                   class="alert alert-danger"
                 >
                   Maximum no of Tickets is 15
                 </div>
               </div>
-            <button type="submit" class="btn btn-primary" (click)="onUpdate(movielist.value)">Update MovieBooking</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!movielist.valid" (click)="onUpdate(movielist.value)">Update MovieBooking</button>
           </form>
     </div>
   </div>
