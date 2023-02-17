@@ -1,0 +1,135 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/movielist">MovieBooking.com</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/addmovie"
+            >AddMovieBooking</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/movielist"
+            >ListAllBooking</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <form [formGroup]="movielist">
+      <div class="mb-3">
+        <label for="movieid" class="form-label">MovieId</label>
+        <input
+          type="number "
+          class="form-control"
+          id="movieid"
+          name="movieid"
+          formControlName="movieid"
+        />
+
+        <div
+          *ngIf="movielist.controls['movieid'].errors?.['required']"
+          class="alert alert-danger"
+        >
+          This field is required
+        </div>
+        <div
+          *ngIf="movielist.controls['movieid'].errors?.['pattern']"
+          class="alert alert-danger"
+        >
+          number should be between 1 to 300
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="movie" class="form-label">MovieName</label>
+        <input
+          type="text"
+          class="form-control"
+          name="moviename"
+          formControlName="moviename"
+        />
+        <div
+          *ngIf="movielist.controls['moviename'].errors?.['required']"
+          class="alert alert-danger"
+        >
+          This field is required
+        </div>
+        <div
+          *ngIf="movielist.controls['moviename'].errors?.['pattern']"
+          class="alert alert-danger"
+        >
+          Movie can have alphanumeric of maximum of 20 character
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="text" for="exampleCheck1">MovieDate</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="movieBookingDate"
+          name="movieBookingDate"
+        />
+        <div
+          *ngIf="movielist.controls['movieBookingDate'].errors?.['required']"
+          class="alert alert-danger"
+        >
+          This field is required
+        </div>
+        <div
+          *ngIf="movielist.controls['movieBookingDate'].errors?.['pattern']"
+          class="alert alert-danger"
+        >
+          The Date format is "DD/MM/YYY"
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="text" for="exampleCheck1" name="moviedate"
+          >noOfTicket</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          name="noOfTickets"
+          formControlName="noOfTickets"
+        />
+        
+        <div
+          *ngIf="movielist.controls['noOfTickets'].errors?.['required']"
+          class="alert alert-danger"
+        >
+          This field is required
+        </div>
+        <div
+          *ngIf="movielist.controls['noOfTickets'].errors?.['pattern']"
+          class="alert alert-danger"
+        >
+          Maximum no of Tickets is 15
+        </div>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        (click)="addmovie(movielist.value)"
+        [disabled]="movielist.errors"
+      >
+        Add MovieBooking
+      </button>
+    </form>
+  </div>
+</div>

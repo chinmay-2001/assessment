@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/movielist">MovieBooking.com</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/addmovie"
+            >AddMovieBooking</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/movielist">ListAllBooking</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br>
+<div class="container" id="contain">
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">MovieId</th>
+          <th scope="col">MovieName</th>
+          <th scope="col">MovieDate</th>
+          <th scope="col">No of Tickets</th>
+          <th scope="col">Total Amount</th>
+          <th scope="col">Update</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let m of list">
+          <td>{{ m.movieid }}</td>
+          <td>{{ m.moviename }}</td>
+          <td>{{ m.movieBookingDate }}</td>
+          <td>{{ m.noOfTickets }}</td>
+          <td>{{m.noOfTickets*35}}</td>
+          <td><Button class="btn btn-primary" (click)="onupdate()">Update</Button></td>
+          <td><Button class="btn btn-dark" (click)="ondelete(m.movieid)">Delete</Button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
