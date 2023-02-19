@@ -1,33 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/movielist">MovieBooking.com</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/addmovie"
-            >AddMovieBooking</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/movielist"
-            >ListAllBooking</a
-          >
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+
 <h1>Add Movie</h1>
 <div class="container-fluid">
   <div class="row">
@@ -37,19 +8,19 @@
         <input
           type="number "
           class="form-control"
-          id="movieid"
-          name="movieid"
-          formControlName="movieid"
+          id="id"
+          name="id"
+          formControlName="id"
         />
 
         <div
-          *ngIf="movielist.controls['movieid'].errors?.['required'] && movielist.touched"
+          *ngIf="movielist.controls['id'].errors?.['required'] && movielist.touched"
           class="alert alert-danger"
         >
           This field is required
         </div>
         <div
-          *ngIf="movielist.controls['movieid'].errors?.['pattern'] && movielist.touched"
+          *ngIf="movielist.controls['id'].errors?.['pattern'] && movielist.touched"
           class="alert alert-danger"
         >
           number should be between 1 to 300
@@ -80,7 +51,7 @@
       <div class="mb-3">
         <label class="text" for="exampleCheck1">MovieDate</label>
         <input
-          type="text"
+          type="date"
           class="form-control"
           formControlName="movieBookingDate"
           name="movieBookingDate"
@@ -91,12 +62,12 @@
         >
           This field is required
         </div>
-        <div
+        <!-- <div
           *ngIf="movielist.controls['movieBookingDate'].errors?.['pattern'] && movielist.touched" 
           class="alert alert-danger"
         >
           The Date format is "DD/MM/YYY"
-        </div>
+        </div> -->
       </div>
       <div class="mb-3">
         <label class="text" for="exampleCheck1" name="moviedate"

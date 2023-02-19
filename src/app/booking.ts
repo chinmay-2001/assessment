@@ -1,6 +1,6 @@
 export class booking{
-    movieid:number=0;
+    id:number=0;
     moviename:string='';
-    movieBookingDate:string="";
+    movieBookingDate:Date=new Date();
     noOfTickets:number=0;
 }

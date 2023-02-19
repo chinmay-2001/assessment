@@ -1,9 +1,10 @@
 {
-  "posts": [
+  "movie": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "id": "3",
+      "moviename": "bahubali",
+      "movieBookingDate": "2023-02-01",
+      "noOfTickets": "5"
     }
   ],
   "comments": [

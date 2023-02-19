@@ -9,12 +9,7 @@ export class MovieService {
 
   constructor(private http:HttpClient) { }
   url='assets/movies.json'
-  movies:booking[]=[{
-    "movieid":1,
-    "moviename":"Avatar",
-    "movieBookingDate":"27/02/2001",
-    "noOfTickets":2
-}]
+  movies:booking[]=[]
 
   
   get=-1;
@@ -30,7 +25,7 @@ export class MovieService {
 
   ondelete(movieid:number){
     for(let i=0;i<this.movies.length;i++){
-      if(movieid==this.movies[i].movieid){
+      if(movieid==this.movies[i].id){
         this.movies.splice(i,1);
       }
     }
@@ -39,7 +34,7 @@ export class MovieService {
 
   onUpdate(movie:booking){
     for(let i=0;i<this.movies.length;i++){
-      if(movie.movieid==this.movies[i].movieid){
+      if(movie.id==this.movies[i].id){
           this.movies.splice(i,1)
           this.movies.push(movie)
       }

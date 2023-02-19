@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { booking } from '../booking';
 import { MovieService } from '../movie.service';
 import { Router } from '@angular/router';
+import { MovieTestService } from '../movie-test.service';
 @Component({
   selector: 'app-list-all-booking',
   templateUrl: './list-all-booking.component.html',
@@ -10,17 +11,24 @@ import { Router } from '@angular/router';
 })
 export class ListAllBookingComponent implements OnInit{
 
-  constructor(private http:HttpClient,private movieservice:MovieService,private router:Router){
+  constructor(private http:HttpClient,private movieservice:MovieService,private router:Router,private movietestservice:MovieTestService){
   }
   list:booking[]=[]
 
-  ngOnInit(){
-    this.list=this.movieservice.getData();
+  // ngOnInit(){
+  //   this.list=this.movieservice.getData();
+  // }
+  ngOnInit(): void {
+      this.movietestservice.getData().subscribe(event=>this.list=event)
   }
 
 
+  // ondelete(movieid:number){
+  //   this.movieservice.ondelete(movieid);
+  //   this.router.navigate(['/movielist'])
+  // }
   ondelete(movieid:number){
-    this.movieservice.ondelete(movieid);
+    this.movietestservice.ondelete(movieid);
     this.router.navigate(['/movielist'])
   }
 
