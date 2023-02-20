@@ -1,0 +1,13 @@
+/* :host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  } */
+#f{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;   
+}
+mat-form-field{
+    width: 1000px;
+}

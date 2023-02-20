@@ -1,7 +1,7 @@
 
 
 <h1>Update movie Booking</h1>
-  <div class="container">
+  <!-- <div class="container">
     <div class="row">
         <form [formGroup]="movielist">
             <div class="mb-3">
@@ -86,4 +86,44 @@
             <button type="submit" class="btn btn-primary" [disabled]="!movielist.valid" (click)="onUpdate(movielist.value)">Update MovieBooking</button>
           </form>
     </div>
+  </div> -->
+
+  <br />
+  <div class="container">
+    <div class="row" >
+      <form [formGroup]="movielist" id="f">
+        <mat-form-field appearance="fill" >
+          <mat-label>MovieId</mat-label>
+          <input matInput formControlName="id"/>
+          <mat-error *ngIf="movielist.controls['id'].errors?.['required'] ">Movieid is required</mat-error>
+          <mat-error *ngIf="movielist.controls['id'].errors?.['pattern']"> Id must be between 1 to 300 </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>MovieName</mat-label>
+          <input matInput formControlName="moviename"/>
+          <mat-error *ngIf="movielist.controls['moviename'].errors?.['required'] ">This field is required</mat-error>
+          <mat-error *ngIf="movielist.controls['moviename'].hasError('maxlength')">Movie can have alphanumeric of maximum of 20 character</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="movieBookingDate" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="movielist.controls['moviename'].errors?.['required'] ">This field is required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>No Of Tickets</mat-label>
+          <input matInput type="text" formControlName="noOfTickets"/>
+          <mat-error *ngIf="movielist.controls['noOfTickets'].errors?.['required']">This field is required</mat-error>
+          <mat-error *ngIf="movielist.controls['noOfTickets'].errors?.['pattern']">Maximum no of Tickets is 15</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" [disabled]="!movielist.valid" (click)="onUpdate(movielist.value)">Add Movie</button>
+      </form>
+    </div>
   </div>
+  

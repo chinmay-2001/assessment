@@ -18,7 +18,7 @@
         <tr *ngFor="let m of list">
           <td>{{ m.id }}</td>
           <td>{{ m.moviename }}</td>
-          <td>{{ m.movieBookingDate }}</td>
+          <td>{{ m.movieBookingDate.toString().slice(0,10) }}</td>
           <td>{{ m.noOfTickets }}</td>
           <td>{{m.noOfTickets*35}}</td>
           <td><Button class="btn btn-primary" (click)="onupdate()">Update</Button></td>

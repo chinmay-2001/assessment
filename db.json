@@ -5,6 +5,18 @@
       "moviename": "bahubali",
       "movieBookingDate": "2023-02-01",
       "noOfTickets": "5"
+    },
+    {
+      "id": "4",
+      "moviename": "starwar",
+      "movieBookingDate": "2023-02-10T18:30:00.000Z",
+      "noOfTickets": "3"
+    },
+    {
+      "id": "2",
+      "moviename": "don no 1",
+      "movieBookingDate": "2023-02-08T18:30:00.000Z",
+      "noOfTickets": "10"
     }
   ],
   "comments": [

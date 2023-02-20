@@ -9,6 +9,17 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { UpdateBookingComponent } from './update-booking/update-booking.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatOptionSelectionChange } from '@angular/material/core';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatChipsModule} from '@angular/material/chips';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatButtonModule} from '@angular/material/button';
+
+
 
 
 @NgModule({
@@ -16,14 +27,23 @@ import { UpdateBookingComponent } from './update-booking/update-booking.componen
     AppComponent,
     ListAllBookingComponent,
     AddMovieBookingComponent,
-    UpdateBookingComponent
+    UpdateBookingComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatChipsModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

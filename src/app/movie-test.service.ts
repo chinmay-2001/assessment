@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { booking } from './booking';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {map} from 'rxjs/operators'
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 }
@@ -15,7 +16,7 @@ export class MovieTestService {
   data: any;
 
   getData(): Observable<booking[]> {
-    return this.http.get<booking[]>(this.url)
+    return this.http.get<booking[]>(this.url).pipe(map(ev=>ev.sort((a,b)=>a.id>b.id?1:-1)))
   }
 
   addMovie(movie: any): Observable<booking> {
@@ -37,7 +38,9 @@ export class MovieTestService {
     this.http.put<booking>("http://localhost:3000/movie/" + movie.id, movie).subscribe({
       next: data => { alert("movie updated successfully") }
       ,
-      error: () => { alert("movie not updated successfully") }
+      error: () => { alert("please give correct movieId") }
     })
   }
+ 
+  
 }

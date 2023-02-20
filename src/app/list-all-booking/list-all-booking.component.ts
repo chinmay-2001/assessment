@@ -4,6 +4,7 @@ import { booking } from '../booking';
 import { MovieService } from '../movie.service';
 import { Router } from '@angular/router';
 import { MovieTestService } from '../movie-test.service';
+import { reduce } from 'rxjs';
 @Component({
   selector: 'app-list-all-booking',
   templateUrl: './list-all-booking.component.html',
