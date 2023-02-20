@@ -13,12 +13,6 @@
       "noOfTickets": "3"
     },
     {
-      "id": "2",
-      "moviename": "don no 1",
-      "movieBookingDate": "2023-02-08T18:30:00.000Z",
-      "noOfTickets": "10"
-    },
-    {
       "id": "1",
       "moviename": "ddlj",
       "movieBookingDate": "2023-02-10T18:30:00.000Z",
