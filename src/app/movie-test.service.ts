@@ -31,7 +31,6 @@ export class MovieTestService {
     }
 
     )
-    // this.http.delete<any>("http://localhost:3000/movie/2")
   }
 
   onUpdate(movie: any) {

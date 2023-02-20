@@ -122,7 +122,7 @@
           <mat-error *ngIf="movielist.controls['noOfTickets'].errors?.['required']">This field is required</mat-error>
           <mat-error *ngIf="movielist.controls['noOfTickets'].errors?.['pattern']">Maximum no of Tickets is 15</mat-error>
         </mat-form-field>
-        <button mat-raised-button color="primary" [disabled]="!movielist.valid" (click)="onUpdate(movielist.value)">Add Movie</button>
+        <button mat-raised-button color="primary" [disabled]="!movielist.valid" (click)="onUpdate(movielist.value)">UpdateMovie Booking</button>
       </form>
     </div>
   </div>
